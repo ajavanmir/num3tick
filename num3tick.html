@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            function numPrice(num){
+                let lenNum = num.toString().length;
+                if(lenNum > 0){
+                    let num_3 = lenNum%3;
+                    let numSpl = num.toString().split('');
+                    let numRes = "";
+                    let i = 1;
+                    let status = false;
+                    numSpl.forEach(function(item){
+                        numRes += item;
+                        if(i == num_3){
+                            numRes += ",";
+                            status = true;
+                        }
+                        if(status == true && i == num_3 + 3 && i < lenNum){
+                            numRes += ",";
+                            num_3 = num_3+3
+                        }
+                        i++
+                    })
+                    return numRes;
+                }
+            }
+            console.log(numPrice(2521254474));
+        </script>
+    </body>
+</html>
